@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :tasks do
+    member do
+      put :change
+    end
+  end
+  devise_for :users
   get 'pages/home'
   
-  get 'pages/about'
+
+  get '/pages/about' => 'pages#about'
+  
+  get 'pages/test' => 'pages#test'
+
   
   root 'pages#home'
 
